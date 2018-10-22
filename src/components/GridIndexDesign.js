@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import { StyleSheet, Text, View, Button} from 'react-native';
+import store from '../store'
+import { connect } from "react-redux"
 
-export default class Home extends Component {
+class GridIndexDesign extends Component {
   static navigationOptions = {
     title: '起爆网络设计'
   }
@@ -24,3 +26,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5FCFF',
   }
 });
+
+let mapStateToProps = state => {
+  return state
+}
+
+export default connect(mapStateToProps)(GridIndexDesign)

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import { StyleSheet, Text, View, Button} from 'react-native';
+import { StyleSheet, Text, View} from 'react-native';
 import { connect } from "react-redux"
+import { Button, WhiteSpace, WingBlank } from 'antd-mobile-rn'
 
 class Home extends Component {
   static navigationOptions = {
@@ -9,54 +10,39 @@ class Home extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.button}>露天矿垂直深孔爆破</Text>
-        <View style={styles.button}>
-          <Button
-            onPress={() => this.props.navigation.navigate('HoleIndex')}
-            title="测孔参数"
-            color="#0D47A1"
-          />
-        </View>
-        <View style={styles.button}>
-          <Button
-            onPress={() => this.props.navigation.navigate('BlastIndexDesign')}
-            title="爆破参数设计"
-            color="#0D47A1"
-          />
-        </View>
-        <View style={styles.button}>
-          <Button
-            onPress={() => this.props.navigation.navigate('GridIndexDesign')}
-            title="起爆网络设计"
-            color="#0D47A1"
-          />
-        </View>
-        <View style={styles.button}>
-          <Button
-            onPress={() => this.props.navigation.navigate('HistoryRecords')}
-            title="历史记录"
-            color="#0D47A1"
-          />
-        </View>
-      </View>
+      <WingBlank>
+        <Text style={styles.title}>露天矿垂直深孔爆破</Text>
+        <WhiteSpace size='xl' />
+        <Button onClick={() => this.props.navigation.navigate('HoleIndex')} type="primary" style={styles.button}>
+          <Text style={{fontSize:30}}>炮孔参数</Text>
+        </Button><WhiteSpace />
+        <WhiteSpace size='xl' />
+        <Button onClick={() => this.props.navigation.navigate('BlastIndexDesign')} type="primary" style={styles.button}>
+          <Text style={{fontSize:30}}>爆破参数设计</Text>
+        </Button>
+        <WhiteSpace size='xl' />
+        <Button onClick={() => this.props.navigation.navigate('GridIndexDesign')} type="primary" style={styles.button}>
+          <Text style={{fontSize:30}}>起爆网络设计</Text>
+        </Button>
+        <WhiteSpace size='xl' />
+        <Button onClick={() => this.props.navigation.navigate('HistoryRecords')} type="primary" style={styles.button}>
+          <Text style={{fontSize:30}}>历史记录</Text>
+        </Button>
+      </WingBlank>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+  title: {
+    marginTop: 100,
+    fontSize: 40,
+    marginBottom: 30,
+    textAlign: 'center'
   },
   button: {
-    width: 400,
-    height: 80,
-    marginBottom: 50,
-    fontSize: 20,
-    textAlign: 'center'
+    height: 70,
+    marginBottom: 20
   }
 });
 
